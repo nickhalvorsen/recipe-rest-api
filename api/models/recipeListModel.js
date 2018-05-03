@@ -5,18 +5,18 @@ var RecipeSchema = new Schema({
     name: {
         type: String,
         required: 'Please enter the name'
-    },
-    dateCreated: {
-        type: Date,
-        default: Date.now
-    },
-    status: {
-        type: [{
-            type: String,
-            enum: ['pending', 'ongoing', 'completed']
-        }],
-        default: ['pending']
     }
+    , description: {
+        type: String
+    }
+    , author: {
+        type: String
+    }
+    , ingredients: [ String ]
+    , steps: [ String ]
+},
+{
+    timestamps: true
 });
 
 module.exports = mongoose.model('Recipes', RecipeSchema);
