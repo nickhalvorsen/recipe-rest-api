@@ -30,7 +30,7 @@ exports.update = function(req, res) {
     Recipe.findOneAndUpdate({_id: req.params.recipeId}, req.body, {new: true}, function(err, recipe) {
         if (err) 
             res.send(err);
-        res.json(task);
+        res.json(recipe);
     });
 };
 
