@@ -1,4 +1,5 @@
 require('dotenv').config();
+var cors = require('cors');
 
 var express = require('express'),
     app = express(),
@@ -10,6 +11,7 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
