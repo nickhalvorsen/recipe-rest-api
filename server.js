@@ -13,7 +13,7 @@ var bodyParser = require('body-parser')
 
 
 mongoose.Promise = global.Promise
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`)
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?authSource=${process.env.DB_NAME}`)
 
 app.use(logger('dev'))
 // log request and response body
